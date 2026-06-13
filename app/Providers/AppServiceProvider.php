@@ -11,8 +11,8 @@ use App\Services\DatabaseNotificationSender;
 use App\Services\EmailNotificationSender;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use App\Listeners\SendArticlePublishedNotifications;
 use App\Events\ArticlePublished;
+use App\Listeners\SendArticlePublishingJob;
 
 
 
@@ -41,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Event::listen(
             ArticlePublished::class,
-            SendArticlePublishedNotifications::class,
+            SendArticlePublishingJob::class,
         );
     }
 }
